@@ -956,39 +956,63 @@ li.inline:first-child {
         margin-right: 1em;
     }
 
-    .chosen {
-        display: block;
-    }
-
-    .unchosen,
-    .chosen {
-        position: relative;
+    .chosen,
+    .unchosen {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid $color-grey-6;
+        border-radius: 3px;
 
         &:before {
-            vertical-align: middle;
             font-family: wagtail;
             content: '';
-            // position: relative
-            display: inline-block;
-            // float: left;
-            color: $color-grey-3;
-            line-height: 1em;
-            font-size: 2.5em;
-            margin-right: 0.3em;
+            display: block;
+            color: $color-grey-1;
+            border-right: 1px solid $color-grey-6;
+            line-height: 3em;
+            font-size: 1.75em;
+            width: 3em;
+            float: left;
+            text-align: center;
         }
+    }
+    
+    .chosen {
+        display: inline-flex;
+        width: 100%;
     }
 
     .unchosen {
         display: none;
+        border-color: $color-teal;
+
+        &:before {
+            color: $color-white;
+            background-color: $color-teal;
+            border-right: none;
+            line-height: 2em;
+            width: 2em;
+        }
+
+        .button {
+            line-height: 2em;
+            height: auto;
+            border: none;
+            border-radius: 0;
+            align-self: stretch;
+        }
     }
 
     .actions {
-        @include clearfix;
         overflow: hidden;
 
         li {
             float: left;
-            margin: 0.3em;
+            margin: 0.5em;
+
+            .button {
+                border: none;
+            }
         }
     }
 
@@ -996,7 +1020,7 @@ li.inline:first-child {
     &.blank {
         .chosen { display: none; }
 
-        .unchosen { display: block; }
+        .unchosen { display: inline-flex; }
     }
 }
 
@@ -1006,15 +1030,11 @@ li.inline:first-child {
 .document-chooser {
     .chosen {
         .title {
+            flex-grow: 1;
             color: $color-grey-1;
-            // display: block;
             padding-left: 1em;
+            font-weight: 600;
             display: inline-block;
-        }
-
-        .actions {
-            clear: both;
-            padding-top: 0.6em;
         }
     }
 }
