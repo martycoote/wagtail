@@ -1067,23 +1067,22 @@ li.inline:first-child {
 }
 
 .image-chooser {
-    .unchosen,
-    .chosen {
+    .unchosen {
         &:before {
             content: 'o';
         }
     }
 
     .chosen {
-        padding-left: $thumbnail-width;
+        // padding-left: $thumbnail-width;
 
         &:before {
-            content: '';
+            display: none;
         }
 
         .preview-image {
             float: left;
-            margin-left: -($thumbnail-width);
+            // margin-left: -($thumbnail-width);
             margin-right: 1em;
             max-width: $thumbnail-width;
 
